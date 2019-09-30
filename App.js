@@ -6,6 +6,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { mapping, light as lightTheme } from '@eva-design/eva';
 import { ApplicationProvider } from 'react-native-ui-kitten';
 
+import SearchForDevice from './app/screens/SearchForDevice/SearchForDevice';
 import Home from './app/screens/Home/Home';
 
 const App = () => {
@@ -21,6 +22,7 @@ const AppContainerConfig = {
 }
 
 const AppNavigator = createStackNavigator({
+  SearchForDevice: { screen: SearchForDevice, },
   Home: { screen: Home, },
 }, AppContainerConfig);
 
