@@ -1,14 +1,14 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Text } from 'react-native-ui-kitten';
+import { TopNavigation, Text } from 'react-native-ui-kitten';
 
 import style from './../../../styles/main';
 
 class Dashboard extends React.Component {
   render() {
     return(
-      <View style={{flex: 1}}>
-        <Text>Hello Dashboard</Text>
+      <View style={style.container}>
+        <TopNavigation title="Dashboard" style={style.header}/>
       </View>
     )
   }

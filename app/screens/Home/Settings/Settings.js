@@ -1,17 +1,17 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Text } from 'react-native-ui-kitten';
+import { TopNavigation, Text } from 'react-native-ui-kitten';
 
 import style from './../../../styles/main';
 
-class Dashboard extends React.Component {
+class Settings extends React.Component {
   render() {
     return(
-      <View style={style.content}>
-        <Text>Hello World</Text>
+      <View style={style.container}>
+        <TopNavigation title="Settings" style={style.header}/>
       </View>
     )
   }
 }
 
-export default Dashboard;
+export default Settings;
