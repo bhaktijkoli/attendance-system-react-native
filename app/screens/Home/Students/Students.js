@@ -9,6 +9,9 @@ class Students extends React.Component {
     return(
       <View style={style.container}>
         <TopNavigation title="Students" style={style.header}/>
+          <View style={style.contentBackground}>
+
+          </View>
       </View>
     )
   }

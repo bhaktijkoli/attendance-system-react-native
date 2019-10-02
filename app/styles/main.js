@@ -6,11 +6,16 @@ export default styles = StyleSheet.create({
     marginTop: getStatusBarHeight(),
   },
   container: {
-    flex: 1
+    flex: 1,
   },
   content: {
     flex: 1,
     padding: 15,
+  },
+  contentBackground: {
+    flex: 1,
+    padding: 15,
+    backgroundColor: '#f9f9f9',
   },
   center: {
     flex: 1,

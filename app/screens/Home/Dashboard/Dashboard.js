@@ -9,6 +9,9 @@ class Dashboard extends React.Component {
     return(
       <View style={style.container}>
         <TopNavigation title="Dashboard" style={style.header}/>
+        <View style={style.contentBackground}>
+
+        </View>
       </View>
     )
   }

@@ -27,6 +27,7 @@ const BottomNavigationShowcase = (props) => {
 
   return (
     <BottomNavigation
+      style={{paddingBottom: 20}}
       selectedIndex={props.navigation.state.index}
       onSelect={onTabSelect}>
       <BottomNavigationTab title='Dashboard' icon={DashboardIcon}/>

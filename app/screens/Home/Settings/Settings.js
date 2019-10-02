@@ -9,6 +9,9 @@ class Settings extends React.Component {
     return(
       <View style={style.container}>
         <TopNavigation title="Settings" style={style.header}/>
+          <View style={style.contentBackground}>
+
+          </View>
       </View>
     )
   }
