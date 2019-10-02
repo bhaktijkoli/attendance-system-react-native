@@ -7,6 +7,7 @@ import axios from 'axios';
 import device from './../../assets/device.png';
 import style from './../../styles/main';
 
+import authActions from './../../actions/authActions';
 import navigationActions from './../../actions/navigationActions';
 
 const zeroconf = new Zeroconf()
@@ -24,6 +25,7 @@ class Home extends React.Component {
         .then(res => {
           deviceFound = true;
           zeroconf.stop();
+          authActions.setHost(address)
           navigationActions.resetNavigation(this, 'Home');
         })
       }
