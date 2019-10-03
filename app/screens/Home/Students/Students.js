@@ -43,6 +43,7 @@ class Students extends React.Component {
             }}
             size="large"
             icon={AddUserIcon}
+            onPress={e=>this.props.navigation.navigate('AddStudent')}
             status='primary'>
           </Button>
         </Layout>

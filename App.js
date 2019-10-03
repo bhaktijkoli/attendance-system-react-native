@@ -11,6 +11,7 @@ import { ApplicationProvider, IconRegistry } from 'react-native-ui-kitten';
 
 import SearchForDevice from './app/screens/SearchForDevice/SearchForDevice';
 import Home from './app/screens/Home/Home';
+import AddStudent from './app/screens/AddStudent/AddStudent';
 
 import store from './app/store';
 
@@ -32,6 +33,7 @@ const AppContainerConfig = {
 const AppNavigator = createStackNavigator({
   SearchForDevice: { screen: SearchForDevice, },
   Home: { screen: Home, },
+  AddStudent: { screen: AddStudent, },
 }, AppContainerConfig);
 
 const AppContainer =  createAppContainer(AppNavigator);
