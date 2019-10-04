@@ -1,28 +1,25 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { View } from 'react-native';
 import { TopNavigation, Layout, Text } from 'react-native-ui-kitten';
 import { List, ListItem, Button, Icon } from 'react-native-ui-kitten';
 
-import request from './../../../utils/request';
+import authActions from './../../../actions/authActions';
 import style from './../../../styles/main';
 
 class Students extends React.Component {
-  state = {
-    students: [],
-  }
-  componentDidMount() {
-    request.get('students')
-    .then(res => {
-      this.setState({students: res.data});
-    })
+  constructor(props) {
+    super(props)
+    authActions.getStudents();
   }
   render() {
+    let students = this.props.auth.students;
     return(
       <View style={style.container}>
         <TopNavigation title="Students" style={style.header}/>
         <Layout style={style.contentBackground}>
           <List
-            data={this.state.students}
+            data={students}
             renderItem={(data, index) => {
               let student = data.item;
               return(
@@ -56,5 +53,10 @@ const AddUserIcon = (style) => (
   <Icon {...style} name='person-add' />
 );
 
+function mapStateToProps(state) {
+  return {
+    auth: state.auth,
+  };
+}
 
-export default Students;
+export default connect(mapStateToProps)(Students);

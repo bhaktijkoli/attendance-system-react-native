@@ -1,9 +1,13 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Alert } from 'react-native';
+import { withNavigation } from 'react-navigation';
 import { Layout, Text, Input, Button } from 'react-native-ui-kitten';
 import ImagePicker from 'react-native-image-picker';
 
 import Header from './../../components/Header';
+
+import authActions from './../../actions/authActions';
+import navigationActions from './../../actions/navigationActions';
 
 import style from './../../styles/main';
 import request from './../../utils/request';
@@ -75,7 +79,15 @@ class AddStudent extends React.Component {
     data.append('image', this.state.image)
     request.post('students', data)
     .then(res => {
-      console.log(res.data);
+      Alert.alert(
+        'Add Student',
+        'Student successfully added.',
+        [
+          {text: 'Ok', onPress: () => navigationActions.resetNavigation(this, 'Home') },
+        ],
+        {cancelable: false},
+      )
+      authActions.getStudents();
     })
   }
 }
