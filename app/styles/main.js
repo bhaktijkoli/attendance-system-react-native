@@ -29,5 +29,11 @@ export default styles = StyleSheet.create({
   space20: {
     marginTop: 20,
     marginBottom: 20,
-  }
+  },
+  mgt10: {
+    marginTop: 10,
+  },
+  mgt20: {
+    marginTop: 20,
+  },
 });
