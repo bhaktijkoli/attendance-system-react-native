@@ -114,7 +114,7 @@ class AddStudent extends React.Component {
         'Add Student',
         'Student successfully added.',
         [
-          {text: 'Ok', onPress: () => navigationActions.resetNavigation(this, 'Home') },
+          {text: 'Ok', onPress: () => navigationActions.resetNavigation(this, 'Students') },
         ],
         {cancelable: false},
       )

@@ -1,12 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { View, StyleSheet } from 'react-native';
-import { Avatar, Text } from 'react-native-ui-kitten';
+import { Avatar, Button, Text, Icon } from 'react-native-ui-kitten';
 
 import Header from './../../components/Header';
 
 import request from './../../utils/request';
 import style from './../../styles/main';
+
+import authActions from './../../actions/authActions';
+import navigationActions from './../../actions/navigationActions';
 
 class StudentDetails extends React.Component {
   render() {
@@ -21,8 +24,23 @@ class StudentDetails extends React.Component {
             <Text category="s1">{student.roll_no}</Text>
           </View>
         </View>
+        <View style={style.contentBackground}>
+          <View style={customStyle.studentFooter}>
+            <Button status="danger" icon={TrashIcon} onPress={this.onPressDelete}>
+              DELETE
+            </Button>
+          </View>
+        </View>
       </View>
     )
+  }
+  onPressDelete = () => {
+    let student = this.props.navigation.getParam('student');
+    request.delete('students',{data: {student:student.id}})
+    .then(res => {
+      authActions.getStudents();
+      this.props.navigation.navigate('Students')
+    })
   }
 }
 
@@ -35,12 +53,18 @@ const customStyle = StyleSheet.create({
     width:124,
     height:124
   },
-  studentName: {
+  studentFooter: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    padding: 20,
   },
-  studentRollNo: {
-
-  }
 })
+
+const TrashIcon = (style) => (
+  <Icon {...style} name='trash' />
+);
 
 function mapStateToProps(state) {
   return {
