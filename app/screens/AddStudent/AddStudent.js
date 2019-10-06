@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Image, TouchableOpacity, Alert } from 'react-native';
-import { withNavigation } from 'react-navigation';
 import { Layout, Text, Input, Button, Icon, Spinner } from 'react-native-ui-kitten';
 import { If, Else, Then } from 'react-if';
 import ImagePicker from 'react-native-image-crop-picker';

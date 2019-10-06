@@ -13,3 +13,9 @@ module.exports.post = (url, data) => {
   console.log(`http://${host}/${url}`);
   return axios.post(`http://${host}/${url}`, data);
 }
+
+module.exports.route = (url) => {
+  let state = store.getState();
+  let host = state.auth.host + ":5000";
+  return `http://${host}/${url}`;
+}

@@ -24,6 +24,7 @@ class Students extends React.Component {
               let student = data.item;
               return(
                 <ListItem
+                  onPress={e=>this.props.navigation.navigate('StudentDetails', {student})}
                   title={`${student.roll_no} ${student.name}`}
                   />
               )
