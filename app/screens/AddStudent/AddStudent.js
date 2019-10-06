@@ -3,7 +3,7 @@ import { View, Image, TouchableOpacity, Alert } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import { Layout, Text, Input, Button, Icon, Spinner } from 'react-native-ui-kitten';
 import { If, Else, Then } from 'react-if';
-import ImagePicker from 'react-native-image-picker';
+import ImagePicker from 'react-native-image-crop-picker';
 
 import Header from './../../components/Header';
 import ButtonEx from './../../components/ButtonEx';
@@ -15,14 +15,6 @@ import style from './../../styles/main';
 import request from './../../utils/request';
 
 import profile from './../../assets/profile.png';
-
-const imageOptions = {
-  title: 'Select Image',
-  storageOptions: {
-    skipBackup: true,
-    path: 'images',
-  },
-};
 
 class AddStudent extends React.Component {
   state = {
@@ -77,13 +69,16 @@ class AddStudent extends React.Component {
             value={this.state.name}
             placeholder="Bhaktij Koli"
             style={style.mgt10}
+            returnKeyType="next"
             onChangeText={name => this.setState({name})}
             />
           <Input
             label="Roll Number"
+            keyboardType="numeric"
             value={this.state.roll_no}
             placeholder="22"
             style={style.mgt10}
+            returnKeyType="done"
             onChangeText={roll_no => this.setState({roll_no})}
             />
           <ButtonEx process={this.state.process} text="ADD STUDENT" onPress={this.onAddStudent}/>
@@ -92,18 +87,17 @@ class AddStudent extends React.Component {
     )
   }
   onAddImage = () => {
-    ImagePicker.showImagePicker(imageOptions, (response) => {
-      if (response.didCancel) {
-        console.log('User cancelled image picker');
-      } else if (response.error) {
-        console.log('ImagePicker Error: ', response.error);
-      } else if (response.customButton) {
-        console.log('User tapped custom button: ', response.customButton);
-      } else {
-        this.setState({
-          image: { uri: response.uri, name: response.fileName, type: response.type },
-        });
-      }
+    ImagePicker.openPicker({
+      width: 400,
+      height: 400,
+      cropping: true,
+      cropperCircleOverlay: true,
+      useFrontCamera: true,
+      cropperActiveWidgetColor: '#3366FF'
+    }).then(response => {
+      this.setState({
+        image: { uri: response.path, name: response.filename, type: response.mime },
+      });
     });
   }
   onAddStudent = () => {
