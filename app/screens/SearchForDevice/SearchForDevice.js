@@ -19,6 +19,7 @@ class Home extends React.Component {
     zeroconf.on('start', () => console.log('The scan has started.'))
     zeroconf.on('found', (data) => console.log('Service found ', data))
     zeroconf.on('resolved', (data) => {
+      console.log(data);
       if(data.name == "Attendance System") {
         let address = data.addresses[0];
         axios.get(`http://${address}:5000`)
@@ -44,7 +45,7 @@ class Home extends React.Component {
           {cancelable: false},
         );
       }
-    }, 3*1000);
+    }, 10*1000);
   }
   render() {
     return(
