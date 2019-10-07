@@ -13,6 +13,7 @@ import SearchForDevice from './app/screens/SearchForDevice/SearchForDevice';
 import Home from './app/screens/Home/Home';
 import StudentDetails from './app/screens/StudentDetails/StudentDetails';
 import AddStudent from './app/screens/AddStudent/AddStudent';
+import AddAttendance from './app/screens/AddAttendance/AddAttendance';
 
 import store from './app/store';
 
@@ -36,6 +37,7 @@ const AppNavigator = createStackNavigator({
   Home: { screen: Home, },
   AddStudent: { screen: AddStudent, },
   StudentDetails: { screen: StudentDetails, },
+  AddAttendance: { screen: AddAttendance, },
 }, AppContainerConfig);
 
 const AppContainer =  createAppContainer(AppNavigator);

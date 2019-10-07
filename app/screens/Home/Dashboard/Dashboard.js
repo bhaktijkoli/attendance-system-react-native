@@ -12,7 +12,7 @@ class Dashboard extends React.Component {
         <View style={[style.contentBackground, {padding: 5}]}>
           <ScrollView>
             <View style={{flexDirection:'row', flexWrap: 2}}>
-              <TouchableOpacity style={[customStyle.block, {backgroundColor: '#3366FF'}]}>
+              <TouchableOpacity style={[customStyle.block, {backgroundColor: '#3366FF'}]} onPress={e=>this.props.navigation.navigate('AddAttendance')}>
                 <Image source={require('./../../../assets/attendance.png')} style={{width:124, height:124}} />
                 <Text style={customStyle.blockTitle}>Add Attendance</Text>
               </TouchableOpacity>
