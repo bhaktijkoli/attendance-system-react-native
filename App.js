@@ -14,6 +14,8 @@ import Home from './app/screens/Home/Home';
 import StudentDetails from './app/screens/StudentDetails/StudentDetails';
 import AddStudent from './app/screens/AddStudent/AddStudent';
 import AddAttendance from './app/screens/AddAttendance/AddAttendance';
+import Subjects from './app/screens/Subjects/Subjects';
+import AddSubject from './app/screens/AddSubject/AddSubject';
 
 import store from './app/store';
 
@@ -38,6 +40,8 @@ const AppNavigator = createStackNavigator({
   AddStudent: { screen: AddStudent, },
   StudentDetails: { screen: StudentDetails, },
   AddAttendance: { screen: AddAttendance, },
+  Subjects: { screen: Subjects, },
+  AddSubject: { screen: AddSubject, },
 }, AppContainerConfig);
 
 const AppContainer =  createAppContainer(AppNavigator);

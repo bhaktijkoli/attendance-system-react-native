@@ -16,6 +16,10 @@ class Dashboard extends React.Component {
                 <Image source={require('./../../../assets/attendance.png')} style={{width:124, height:124}} />
                 <Text style={customStyle.blockTitle}>Add Attendance</Text>
               </TouchableOpacity>
+              <TouchableOpacity style={[customStyle.block, {backgroundColor: '#3366FF'}]} onPress={e=>this.props.navigation.navigate('Subjects')}>
+                <Image source={require('./../../../assets/attendance.png')} style={{width:124, height:124}} />
+                <Text style={customStyle.blockTitle}>Subjects</Text>
+              </TouchableOpacity>
             </View>
           </ScrollView>
         </View>
