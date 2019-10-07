@@ -91,8 +91,6 @@ class AddStudent extends React.Component {
       height: 400,
       cropping: true,
       cropperCircleOverlay: true,
-      useFrontCamera: true,
-      cropperActiveWidgetColor: '#3366FF'
     }).then(response => {
       this.setState({
         image: { uri: response.path, name: response.filename, type: response.mime },
@@ -114,7 +112,7 @@ class AddStudent extends React.Component {
         'Add Student',
         'Student successfully added.',
         [
-          {text: 'Ok', onPress: () => navigationActions.resetNavigation(this, 'Students') },
+          {text: 'Ok', onPress: () => navigationActions.resetNavigation(this, 'Home') },
         ],
         {cancelable: false},
       )
