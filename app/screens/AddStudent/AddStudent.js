@@ -110,7 +110,7 @@ class AddStudent extends React.Component {
       authActions.getStudents();
       this.setState({process: false})
       alert.showOkDailog('Add Student', 'Student successfully added.', () => {
-        this.props.navigation.navigate('Subjects')
+        this.props.navigation.navigate('Home')
       })
     })
   }

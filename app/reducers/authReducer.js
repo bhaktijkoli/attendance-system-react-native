@@ -1,6 +1,7 @@
 var initialState = {
   host: '',
   students: [],
+  subjects: [],
 }
 export default function reducer(state=initialState, action) {
 
