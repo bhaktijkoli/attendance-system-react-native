@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, Alert } from 'react-native';
+import { View } from 'react-native';
 import { Layout, Text } from 'react-native-ui-kitten';
 import { Button, Input } from 'react-native-ui-kitten';
 
@@ -8,6 +8,7 @@ import Header from './../../components/Header';
 import ButtonEx from './../../components/ButtonEx';
 
 import request from './../../utils/request';
+import alert from './../../utils/alert';
 import style from './../../styles/main';
 
 import authActions from './../../actions/authActions';
@@ -42,14 +43,9 @@ class AddSubject extends React.Component {
     .then(res => {
       authActions.getSubjects();
       this.setState({process: false})
-      Alert.alert(
-        'Add Subject',
-        'Subject successfully added.',
-        [
-          {text: 'Ok', onPress: () => this.props.navigation.navigate('Subjects') },
-        ],
-        {cancelable: false},
-      )
+      alert.showOkDailog('Add Subject', 'Subject successfully added.', () => {
+        this.props.navigation.navigate('Subjects')
+      })
     })
   }
 }
