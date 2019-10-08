@@ -12,6 +12,7 @@ import navigationActions from './../../actions/navigationActions';
 
 import style from './../../styles/main';
 import request from './../../utils/request';
+import alert from './../../utils/alert';
 
 import profile from './../../assets/profile.png';
 
