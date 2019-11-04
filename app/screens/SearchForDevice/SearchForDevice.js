@@ -21,7 +21,7 @@ class Home extends React.Component {
     zeroconf.on('resolved', (data) => {
       console.log(data);
       if(data.name == "Attendance System") {
-        let address = data.addresses[data.addresses.length-1];
+        let address = data.addresses[0];
         axios.get(`http://${address}:5000`)
         .then(res => {
           deviceFound = true;
