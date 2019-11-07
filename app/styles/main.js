@@ -1,9 +1,9 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 export default styles = StyleSheet.create({
   header: {
-    marginTop: getStatusBarHeight(),
+    marginTop: Platform.OS=='ios'?getStatusBarHeight():0,
   },
   container: {
     flex: 1,

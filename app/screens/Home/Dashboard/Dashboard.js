@@ -11,7 +11,7 @@ class Dashboard extends React.Component {
         <TopNavigation title="Dashboard" style={style.header}/>
         <View style={[style.contentBackground, {padding: 5}]}>
           <ScrollView>
-            <View style={{flexDirection:'row', flexWrap: 2}}>
+            <View style={{flexDirection:'row'}}>
               <TouchableOpacity style={[customStyle.block, {backgroundColor: '#3366FF'}]} onPress={e=>this.props.navigation.navigate('AddAttendance')}>
                 <Image source={require('./../../../assets/attendance.png')} style={{width:124, height:124}} />
                 <Text style={customStyle.blockTitle}>Add Attendance</Text>
